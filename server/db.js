@@ -6,7 +6,8 @@ let connection = mysql.createConnection({
     host: 'localhost',
     user:'root',
     password:'',
-    database:'msd'
+    database:'msd',
+    multipleStatements:true
 })
 
 connection.connect((err)=>{

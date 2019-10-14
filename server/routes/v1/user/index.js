@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require('../../../models/user')
+const preference = require("./preference");
 let user = new User();
 
 router.post('/login', async (req,res)=>{
@@ -28,13 +29,6 @@ router.post('/register', async (req,res)=>{
     }
 })
 
-router.get('/preference',(req,res)=>{
-    res.send("Preference")
-})
-
-router.post('/preference',(req,res)=>{
-    res.send("Preference")
-})
-
+router.use('/preference',preference);
 
 module.exports = router;

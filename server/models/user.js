@@ -31,5 +31,16 @@ const crypto = require("crypto");
             salt:salt
         }
     }
+
+    async insertPreference(preference){
+        console.log(preference)
+        let rows = await connection.promise().query(`insert into msd_pref (user_id,preference) VALUES ?`,[preference]);
+        return rows[0];
+    }
+    
+    async getPreference(user_id){
+        let rows = await connection.promise().query(`select * from msd_pref where user_id=${user_id}`);
+        return rows[0];
+    }
 }
 module.exports = User;
