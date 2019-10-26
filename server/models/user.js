@@ -20,7 +20,7 @@ const c = connection.getPool();
 
     async validateUser(username,password){
         let query = `select * from msd_user where username='${username}'`;
-        let results = await c.getPool().promise().query(query);
+        let results = await c.promise().query(query);
         return results[0][0].password == crypto.pbkdf2Sync(password,results[0][0].salt,1000,64,'sha512').toString('hex')
     }
 
