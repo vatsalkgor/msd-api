@@ -4,7 +4,7 @@ const dotenv = require("dotenv")
 const axios = require('axios');
 const qs = require("querystring");
 dotenv.config();
-const napi = new NewsAPI('3b9d66f2d1894a3c9480f2343d80cf64')
+const napi = new NewsAPI(process.env.KEY_NEWS)
 
 router.get('/:user_id(\\d+)?', async (req, res) => {
     let responses = [];
@@ -65,7 +65,7 @@ let getContent = async url => {
 let getSummary = async content => {
     let sent = Math.ceil((content.split(' ').length * 0.5) / 100)
     let data = {
-        key: '2099c3c3e0d0ce3996440334ff186910',
+        key: process.env.KEY_SUMM,
         txt: content,
         sentences: sent > 6 ? 6 : sent,
     }
