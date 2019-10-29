@@ -80,7 +80,7 @@ let getResults = async array =>{
     let results = [];
     let i = 0;
     for(const value of array){
-        if (i == 5) {
+        if (i < 6) {
             // getContent is a function that performs scraping.
             let content = await getContent(value.url);
             console.log("::::::::NEW:::::::" + "\n" + content + "length: " + content.split(' ').length);
