@@ -92,7 +92,9 @@ let getResults = async array =>{
                 url: value.url,
                 summary
             }
-            results.push(o);
+            if(summary!=undefined){
+                results.push(o);
+            }
         }
         i+=1;
     }
