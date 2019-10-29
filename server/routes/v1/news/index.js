@@ -32,8 +32,6 @@ router.get('/:user_id(\\d+)?', async (req, res) => {
         language: 'en',
         pageSize: 10,
         page: 1,
-        sortBy: 'popularity',
-        source: 'bbc-news'
     })
     console.log(results.articles.length)
     
@@ -82,7 +80,7 @@ let getResults = async array =>{
     let results = [];
     let i = 0;
     for(const value of array){
-        if (i == 0) {
+        if (i == 5) {
             // getContent is a function that performs scraping.
             let content = await getContent(value.url);
             console.log("::::::::NEW:::::::" + "\n" + content + "length: " + content.split(' ').length);
